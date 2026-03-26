@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting...</title>
+</head>
+<body>
+    <script>
+        // Funzione per caricare il tunnel saltando l'avviso
+        async function bypassNgrok() {
+            const url = "https://d1f6-87-21-106-167.ngrok-free.app";
+            
+            // Facciamo una richiesta 'silenziosa' per impostare il cookie di bypass
+            await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'ngrok-skip-browser-warning': 'true'
+                }
+            });
+
+            // Ora che l'header è stato "visto", facciamo il redirect vero
+            window.location.href = url;
+        }
+
+        bypassNgrok();
+    </script>
+</body>
+</html>
