@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Redirecting...</title>
+    <title>Redirecting to Google...</title>
 </head>
-<body>
+<body style="background-color: white; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <p>Caricamento in corso...</p>
+
     <script>
-        // Funzione per caricare il tunnel saltando l'avviso
-        async function bypassNgrok() {
-            const url = "https://d1f6-87-21-106-167.ngrok-free.app";
-            
-            // Facciamo una richiesta 'silenziosa' per impostare il cookie di bypass
-            await fetch(url, {
+        // L'URL del tuo tunnel ngrok attuale
+        const ngrokUrl = "https://d1f6-87-21-106-167.ngrok-free.app";
+
+        // Funzione per il bypass rapido
+        function doRedirect() {
+            // Apriamo una connessione che imposta l'header di bypass
+            // Usiamo un'immagine o un semplice fetch per "convincere" ngrok
+            fetch(ngrokUrl, {
                 method: 'GET',
+                mode: 'no-cors',
                 headers: {
                     'ngrok-skip-browser-warning': 'true'
                 }
+            }).finally(() => {
+                // Dopo il tentativo di fetch, forziamo il redirect
+                window.location.href = ngrokUrl;
             });
-
-            // Ora che l'header è stato "visto", facciamo il redirect vero
-            window.location.href = url;
         }
 
-        bypassNgrok();
+        // Avvia il processo
+        doRedirect();
     </script>
 </body>
 </html>
